@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Input({ label, type, placeholder, error, onChange }) {
+export default function Input({ label, type, placeholder, error, onChange, value }) {
   return (
-    <div className="mb-6">
+    <div className="mb-5">
       <label
         className="block text-gray-700 text-sm font-bold mb-2"
         htmlFor="password"
@@ -14,6 +14,7 @@ export default function Input({ label, type, placeholder, error, onChange }) {
         type={type}
         placeholder={placeholder}
         onChange={onChange}
+        value={value}
       />
       {error ? (
         <p className="text-red-500 text-xs italic">{error}</p>

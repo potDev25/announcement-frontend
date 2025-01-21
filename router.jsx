@@ -3,6 +3,8 @@ import GustLayout from "./src/components/GustLayout";
 import MainPage from "./src/Pages/Guests/MainPage";
 import Login from "./src/Pages/Guests/Login";
 import Register from "./src/Pages/Guests/Register";
+import HomeLayout from "./src/components/HomeLayout";
+import Home from "./src/Pages/Home/Home";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +23,16 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register/>
             },
+        ]
+    },
+    {
+        path: '/',
+        element: <HomeLayout/>,
+        children: [
+            {
+                path: '/home',
+                element: <Home/>
+            }
         ]
     }
 ])

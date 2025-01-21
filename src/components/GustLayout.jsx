@@ -1,23 +1,22 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Navigate, Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Container from './Container'
 import { useSelector } from 'react-redux'
+import Loader from './Loader/Loader'
 
 export default function GustLayout() {
 
-  const {user, token, error, loading} = useSelector((state) => state.auth)
+  const { token, loading} = useSelector((state) => state.auth)
   
   if(token){
-    window.location.replace('/dashboard')
+    return <Navigate to={'/home'}/>
   }
 
   return (
     <div className='w-full h-full'>
       {
-        loading ? <>
-          Loading
-        </> : <>
+        loading ? <Loader/> : <>
           <Navbar/>
           <Container>
               <Outlet/>
